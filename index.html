@@ -1,12 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AhorrADAs</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header>
+      <nav id="nav" class="bg-teal-500 flex p-4">
+        <div class="flex justify-between items-center w-4/5">
+          <h1 class="text-white text-lg font-semibold">
+            <i class="fas fa-wallet mr-2 text-white"></i>
+            AhorrADAS
+          </h1>
+        </div>
+        <div class="nav-links bg-emerald-600 w-1/5 text-center text-white">
+          <p>Hola</p>
+        </div>
+      </nav>
+    </header>
+
+    <section id="principal-view" class="flex flex-col items-center p-4 lg:flex-row justify-between">
+      <div
+        id="balance-filters-cont"
+        class="bg-emerald-100 w-full flex flex-col items-center lg:w-2/5"
+      >
+        <div
+          id="balance-cont"
+          class="bg-emerald-600 w-10/12 h-48 m-4 rounded shadow lg:w-80"
+        >
+          <h2 class="text-xl font-semibold p-2">Balance</h2>
+          <div class="flex justify-between p-2">
+            <span>Ganancias:</span>
+            <p id="gain" class="text-green-500">+$0</p>
+          </div>
+          <div class="flex justify-between p-2">
+            <span>Gastos:</span>
+            <p id="cost" class="text-red-500">-$0</p>
+          </div>
+          <div class="flex justify-between p-2">
+            <span>Total:</span>
+            <p id="overall" class="text-black-500">$0</p>
+          </div>
+        </div>
+
+        <div
+          id="filters-cont"
+          class="bg-emerald-700 w-10/12 h-80 m-4 rounded shadow lg:w-80"
+        >
+          <h2 class="text-xl font-semibold p-2">Filtros</h2>
+          <div id="filter-type" class="mb-2">
+            <label for="type">Tipo</label>
+            <select
+              id="select-type"
+              class="w-full mt-1 bg-pink-100 rounded shadow"
+            >
+              <option value="all">Todos</option>
+              <option value="costs">Gastos</option>
+              <option value="gains">Ganancias</option>
+            </select>
+          </div>
+          <div class="mb-2">
+            <label for="">Categorias:</label>
+            <select
+              id="category-select"
+              class="w-full mt-1 bg-pink-100 rounded shadow"
+            >
+              <!--rendering-->
+            </select>
+          </div>
+          <div id="since" class="mb-2">
+            <label>Desde:</label>
+            <input
+              type="date"
+              id="since-date"
+              class="w-full mt-1 bg-pink-100 rounded shadow"
+            />
+          </div>
+          <div class="mb-2">
+            <label class="">Ordenar por: </label>
+            <select class="w-full bg-pink-100 rounded shadow" id="filter-order">
+              <option value="more-recent">Mas reciente</option>
+              <option value="less-recent">Menos reciente</option>
+              <option value="greater-amount">Mayor monto</option>
+              <option value="lower-amount">Menor monto</option>
+              <option value="from-a">A/Z</option>
+              <option value="from-z">Z/A</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!--operations container-->
+      <div
+        id="operations-cont"
+        class="bg-emerald-200 w-10/12 h-96 m-4 rounded shadow lg:w-3/5"
+      >
+        <div class="flex flex-col bg-emerald-600 md:flex-row justify-between">
+          <h3>Operaciones</h3>
+          <button id="new-operation-btn" class="flex justify-items-start" >+ Nueva operación</button>
+        </div>
+        <div id="no-results" class="flex flex-col items-center p-2 mt-4">
+          <i class="fas fa-folder-open fa-8x"></i>
+          <h3 class="mt-3">Sin resultados</h3>
+          <p class="mt-3">Cambia los filtros o agrega operaciones</p>
+        </div>
+      </div>
+    </section>
+
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>
