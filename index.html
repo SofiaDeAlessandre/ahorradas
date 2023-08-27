@@ -13,29 +13,59 @@
     />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body>
+  <body class="bg-slate-100">
     <header>
-      <nav id="nav" class="bg-teal-500 flex p-4">
+      <nav id="nav" class="bg-teal-500 p-8 xl: flex">
         <div class="flex justify-between items-center w-4/5">
           <h1 class="text-white text-lg font-semibold">
             <i class="fas fa-wallet mr-2 text-white"></i>
-            AhorrADAS
+            AhorrADAs
           </h1>
+          <button id="btn-nav" class="xl:hidden w-6 h-6 bg-purple-800" >
+            <i class="fa-solid fa-bars"></i>
+          </button>
         </div>
-        <div class="nav-links bg-emerald-600 w-1/5 text-center text-white">
-          <p>Hola</p>
+        <ul id="ul-nav" class=" bg-green-400 w-10 h-46 xl:flex">
+          <li id="nav-links" class="text-center text-white hidden xl:flex">
+            <a
+              href="#"
+              id="balance-link"
+              class="px-6 py-1 rounded transition-colors duration-200 hover:bg-purple-800"
+              >Balance</a
+            > 
+          </li>
+          <li id="nav-links" class="ftext-center text-white hidden xl:flex" >
+            <a
+              href="#"
+              id="categories-link"
+              class="px-6 py-1 rounded transition-colors duration-200 hover:bg-purple-800"
+              >Categorias</a
+            >
+          </li>
+          <li id="nav-links" class=" text-center text-white hidden xl:flex">
+            <a
+              href="#"
+              id="reports-link"
+              class="px-6 py-1 rounded transition-colors duration-200 hover:bg-purple-800"
+              >Reportes</a
+            >
+          </li>
+          </ul>
         </div>
       </nav>
     </header>
 
-    <section id="principal-view" class="flex flex-col items-center p-4 lg:flex-row justify-between">
+    <section
+      id="principal-view"
+      class="flex flex-col items-center lg:flex-row justify-between m-10"
+    >
       <div
         id="balance-filters-cont"
-        class="bg-emerald-100 w-full flex flex-col items-center lg:w-2/5"
+        class="w-full flex flex-col items-center lg:w-2/5"
       >
         <div
           id="balance-cont"
-          class="bg-emerald-600 w-10/12 h-48 m-4 rounded shadow lg:w-80"
+          class="w-10/12 h-48 m-4 rounded shadow bg-slate-50 lg:w-80"
         >
           <h2 class="text-xl font-semibold p-2">Balance</h2>
           <div class="flex justify-between p-2">
@@ -54,15 +84,15 @@
 
         <div
           id="filters-cont"
-          class="bg-emerald-700 w-10/12 h-80 m-4 rounded shadow lg:w-80"
+          class="w-10/12 h-80 m-4 rounded shadow bg-slate-50 lg:w-80"
         >
-          <h2 class="text-xl font-semibold p-2">Filtros</h2>
+          <div class="flex p-2 justify-between">
+            <h2 class="text-xl font-semibold">Filtros</h2>
+            <button class="text-sky-700">Ocultar filtros</button>
+          </div>
           <div id="filter-type" class="mb-2">
             <label for="type">Tipo</label>
-            <select
-              id="select-type"
-              class="w-full mt-1 bg-pink-100 rounded shadow"
-            >
+            <select id="select-type" class="w-full mt-1 rounded border shadow">
               <option value="all">Todos</option>
               <option value="costs">Gastos</option>
               <option value="gains">Ganancias</option>
@@ -72,7 +102,7 @@
             <label for="">Categorias:</label>
             <select
               id="category-select"
-              class="w-full mt-1 bg-pink-100 rounded shadow"
+              class="w-full mt-1 rounded border shadow"
             >
               <!--rendering-->
             </select>
@@ -82,12 +112,12 @@
             <input
               type="date"
               id="since-date"
-              class="w-full mt-1 bg-pink-100 rounded shadow"
+              class="w-full mt-1 rounded border shadow"
             />
           </div>
           <div class="mb-2">
             <label class="">Ordenar por: </label>
-            <select class="w-full bg-pink-100 rounded shadow" id="filter-order">
+            <select class="w-full rounded border shadow" id="filter-order">
               <option value="more-recent">Mas reciente</option>
               <option value="less-recent">Menos reciente</option>
               <option value="greater-amount">Mayor monto</option>
@@ -101,17 +131,114 @@
       <!--operations container-->
       <div
         id="operations-cont"
-        class="bg-emerald-200 w-10/12 h-96 m-4 rounded shadow lg:w-3/5"
+        class="w-10/12 h-96 m-4 rounded shadow w-96 bg-slate-50"
       >
-        <div class="flex flex-col bg-emerald-600 md:flex-row justify-between">
+        <div class="flex flex-col m-4 md:flex-row justify-between">
           <h3>Operaciones</h3>
-          <button id="new-operation-btn" class="flex justify-items-start" >+ Nueva operación</button>
+          <button
+            id="new-operation-btn"
+            class="flex justify-items-start bg-teal-500 rounded shadow w-40"
+          >
+            + Nueva operación
+          </button>
         </div>
         <div id="no-results" class="flex flex-col items-center p-2 mt-4">
           <i class="fas fa-folder-open fa-8x"></i>
           <h3 class="mt-3">Sin resultados</h3>
           <p class="mt-3">Cambia los filtros o agrega operaciones</p>
         </div>
+      </div>
+      <!--operation table-->
+      <table class="table w-full hidden bg-slate-50">
+        <thead>
+          <th>Descripcion</th>
+          <th>Categoria</th>
+          <th>Fecha</th>
+          <th>Monto</th>
+          <th>Acciones</th>
+        </thead>
+        <tbody id="table">
+          <!--render-->
+        </tbody>
+      </table>
+      <!--add operation form-->
+      <form class="form hidden rounded shadow bg-slate-50 w-3/6 p-4">
+        <div class="w-full">
+          <label for="description" class="">Descripcion</label>
+          <input
+            type="text"
+            class="w-full mt-1 bg-slate-50 rounded border shadow"
+            name="description"
+            id="description"
+            placeholder="Descripcion"
+          />
+        </div>
+        <div class="">
+          <label for="amount" class="form-label">Monto</label>
+          <input
+            type="number"
+            class="w-full mt-1 bg-slate-50 rounded border shadow"
+            name="amount"
+            id="amount"
+            placeholder="0"
+          />
+        </div>
+        <div class="">
+          <label for="type" class="form-control">Tipo</label>
+          <select
+            class="w-full mt-1 bg-slate-50 rounded border shadow"
+            id="select-type"
+          >
+            <option value="type-amount">Gasto</option>
+            <option value="type-gain">Ganancia</option>
+          </select>
+        </div>
+        <div class="">
+          <label for="category">Categoría</label>
+          <select
+            id="select-category"
+            class="w-full mt-1 bg-slate-50 rounded border shadow"
+          >
+            <option value="salidas">salidas</option>
+            <!--render-->
+          </select>
+        </div>
+        <div>
+          <label>Fecha</label>
+          <input
+            type="date"
+            id="date-input"
+            class="w-full mt-1 bg-slate-50 rounded border shadow"
+          />
+        </div>
+        <div class="">
+          <button class="btn rounded shadow" id="btn-cancel">Cancelar</button>
+          <button
+            class="btn bg-green-400 rounded shadow text-white"
+            id="btn-add"
+          >
+            Agregar
+          </button>
+        </div>
+      </form>
+      <!-- add category-->
+      <div
+        class="hidden rounded shadow bg-slate-50 w-3/6 p-4"
+        id="category-div"
+      >
+        <h3 class="text-xl">Categorías</h3>
+        <label for="" class="">Nombre</label>
+        <div class="">
+          <input type="text" class="rounded border shadow" />
+          <button>Agregar</button>
+        </div>
+      </div>
+      <!-- div reports-->
+      <div class="hidden rounded shadow bg-slate-50 w-3/6 p-4" id="reports-div">
+        <h4>Reportes</h4>
+        <div class="w-10 h-48"></div>
+        <h5>Operaciones insuficientes</h5>
+        <p>Prueba agregando más operaciones</p>
       </div>
     </section>
 
