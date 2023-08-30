@@ -15,7 +15,7 @@
   </head>
   <body class="bg-slate-100">
     <header>
-      <nav id="nav" class="bg-teal-500 p-8 xl: flex">
+      <nav id="nav" class="bg-teal-500 p-8 xl:flex">
         <div class="flex justify-between items-center w-4/5">
           <h1 class="text-white text-lg font-semibold">
             <i class="fas fa-wallet mr-2 text-white"></i>
@@ -25,8 +25,8 @@
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
-        <ul id="ul-nav" class=" bg-green-400 w-10 h-46 xl:flex">
-          <li id="nav-links" class="text-center text-white hidden xl:flex">
+        <ul id="ul-nav" class="hidden w-46 mt-6 xl:flex xl:mt-0">
+          <li id="nav-links" class="text-center text-white flex">
             <a
               href="#"
               id="balance-link"
@@ -34,7 +34,7 @@
               >Balance</a
             > 
           </li>
-          <li id="nav-links" class="ftext-center text-white hidden xl:flex" >
+          <li id="nav-links" class="text-center text-white flex" >
             <a
               href="#"
               id="categories-link"
@@ -42,7 +42,7 @@
               >Categorias</a
             >
           </li>
-          <li id="nav-links" class=" text-center text-white hidden xl:flex">
+          <li id="nav-links" class="text-center text-white flex">
             <a
               href="#"
               id="reports-link"
@@ -223,7 +223,7 @@
       </form>
       <!-- add category-->
       <div
-        class="hidden rounded shadow bg-slate-50 w-3/6 p-4"
+        class="hidden rounded shadow bg-slate-50 w-full p-4 xl:w-3/6"
         id="category-div"
       >
         <h3 class="text-xl">Categorías</h3>
@@ -234,7 +234,7 @@
         </div>
       </div>
       <!-- div reports-->
-      <div class="hidden rounded shadow bg-slate-50 w-3/6 p-4" id="reports-div">
+      <div class="hidden rounded shadow bg-slate-50 w-full p-4 xl:-3/6" id="reports-div">
         <h4>Reportes</h4>
         <div class="w-10 h-48"></div>
         <h5>Operaciones insuficientes</h5>
