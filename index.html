@@ -5,49 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AhorrADAs</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="bg-slate-100">
     <header>
-      <nav id="nav" class="bg-teal-500 p-8 xl:flex">
-        <div class="flex justify-between items-center w-4/5">
-          <h1 class="text-white text-lg font-semibold">
-            <i class="fas fa-wallet mr-2 text-white"></i>
+      <nav id="nav" class="bg-teal-500 xl:flex">
+        <div class="flex justify-between items-center p-8 xl:w-4/5">
+          <h1 class="text-white font-semibold text-4xl">
+            <i class="fas fa-wallet ml-4 text-white"></i>
             AhorrADAs
           </h1>
-          <button id="btn-nav" class="xl:hidden w-6 h-6 bg-purple-800" >
+          <button id="btn-nav" class="xl:hidden w-6 h-6 text-white" >
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
-        <ul id="ul-nav" class="hidden w-46 mt-6 xl:flex xl:mt-0">
-          <li id="nav-links" class="text-center text-white flex">
+        <ul id="ul-nav" class="hidden w-46  bg-slate-50 xl:flex xl:p-8 xl:bg-teal-500">
+          <li id="nav-links" class="text-center text-black flex xl:text-white">
             <a
               href="#"
               id="balance-link"
-              class="px-6 py-1 rounded transition-colors duration-200 hover:bg-purple-800"
-              >Balance</a
+              class="px-6 py-1 rounded transition-colors duration-200 hover:bg-purple-800 flex"
+              ><i class="fa-solid fa-chart-line p-1"></i> Balance</a
             > 
           </li>
-          <li id="nav-links" class="text-center text-white flex" >
-            <a
+          <li id="nav-links" class="text-center text-black flex xl:text-white" >
+            <a 
               href="#"
               id="categories-link"
-              class="px-6 py-1 rounded transition-colors duration-200 hover:bg-purple-800"
-              >Categorias</a
+              class="px-6 py-1 rounded transition-colors duration-200 hover:bg-purple-800 flex"
+              ><i class="fa-solid fa-tag p-1"></i> Categorias</a 
             >
+          
           </li>
-          <li id="nav-links" class="text-center text-white flex">
+          <li id="nav-links" class="text-center text-black flex xl:text-white">
             <a
               href="#"
               id="reports-link"
-              class="px-6 py-1 rounded transition-colors duration-200 hover:bg-purple-800"
-              >Reportes</a
+              class="px-6 py-1 rounded transition-colors duration-200 hover:bg-purple-800 flex"
+              ><i class="fa-solid fa-chart-pie p-1"></i> Reportes</a
             >
           </li>
           </ul>
@@ -57,11 +53,11 @@
 
     <section
       id="principal-view"
-      class="flex flex-col items-center lg:flex-row justify-between m-10"
+      class="flex flex-col items-center lg:flex-row justify-between lg:items-stretch lg:m-20"
     >
       <div
         id="balance-filters-cont"
-        class="w-full flex flex-col items-center lg:w-2/5"
+        class="w-full flex flex-col items-center lg:w-1/3"
       >
         <div
           id="balance-cont"
@@ -131,7 +127,7 @@
       <!--operations container-->
       <div
         id="operations-cont"
-        class="w-10/12 h-96 m-4 rounded shadow w-96 bg-slate-50"
+        class="m-4 rounded shadow w-2/3 bg-slate-50"
       >
         <div class="flex flex-col m-4 md:flex-row justify-between">
           <h3>Operaciones</h3>
