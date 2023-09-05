@@ -43,11 +43,11 @@ const initialize = () => {
     hideElement("#operations-cont")
     hideElement(".form")
     hideElement("#category-div")
-
   });
   $("#btn-nav").addEventListener("click", () => {
-    showElement("#ul-nav")
+    $("#ul-nav").classList.toggle("hidden")
   })
 };
 
 window.addEventListener("load", initialize);
+
